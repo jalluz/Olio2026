@@ -1,0 +1,19 @@
+# Build folders
+build/
+*/build/
+
+# Compiled objects and binaries
+*.o
+*.obj
+*.exe
+*.out
+
+# Temporary files
+*.tmp
+*.swp
+
+# Qt build folders
+build/
+*.user
+*.pro.user
+*.exe
