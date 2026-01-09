@@ -1,25 +1,44 @@
 #include <iostream>
-#include <cstdlib>  // rand, srand
-#include <ctime>    // time
+#include <cstdlib>
+#include <ctime>
+#include <limits>
 
-int main() {
-    srand(static_cast<unsigned int>(time(0))); // satunnaissiementäminen
-    int number = rand() % 20 + 1; // arvo luku 1–20
-    int guess = 0;
+// Funktio, joka pyörittää arvauspeliä ja palauttaa arvausten määrän
+int game(int maxnum) {
+    int secret = rand() % maxnum + 1;  // etsittävä luku
+    int guess = 0;                     // pelaajan arvaus
+    int attempts = 0;                  // arvausten määrä
 
-    std::cout << "Arvaa luku väliltä 1-20: ";
+    while (guess != secret) {
+        std::cout << "Syota arvaus (1-"<< maxnum << "): ";
 
-    while (guess != number) {
-        std::cin >> guess;
+        if (!(std::cin >> guess)) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Virheellinen syote! Anna kokonaisluku.\n";
+            continue;
+        }
 
-        if (guess < number) {
-            std::cout << "Liian pieni. Yritä uudelleen: ";
-        } else if (guess > number) {
-            std::cout << "Liian suuri. Yritä uudelleen: ";
+        attempts++;
+
+        if (guess < secret) {
+            std::cout << "Liian pieni\n";
+        } else if (guess > secret) {
+            std::cout << "Liian suuri\n";
         } else {
-            std::cout << "Oikein! Onneksi olkoon!\n";
+            std::cout << "Oikein\n";
         }
     }
 
+    return attempts;
+}
+
+int main() {
+    srand(static_cast<unsigned int>(time(0)));  // satunnaisuus alustetaan
+
+    int maxnum = 40;
+    int result = game(maxnum);
+
+    std::cout << "Arvauksia yhteensa: " << result << "\n";
     return 0;
 }
