@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-// Chef class definition
+// Chef class
 class Chef {
 protected:
     string chefName;
@@ -16,7 +16,7 @@ public:
     int makeSoup(int ingredients);
 };
 
-// Chef method implementations
+// Chef method
 Chef::Chef(string name) {
     chefName = name;
     cout << "Chef " << chefName << "konstruktori" << endl;
@@ -42,7 +42,7 @@ int Chef::makeSoup(int ingredients) {
     return portions;
 }
 
-// ItalianChef class definition (inherits from Chef)
+// ItalianChef class
 class ItalianChef : public Chef {
 private:
     string password;
@@ -56,7 +56,7 @@ public:
     bool askSecret(string pwd, int flour, int water);
 };
 
-// ItalianChef method implementations
+// ItalianChef method
 ItalianChef::ItalianChef(string name) : Chef(name) {
     password = "pizza";
     flour = 0;
@@ -87,7 +87,7 @@ int ItalianChef::makePizza(int flour, int water) {
     return pizzas;
 }
 
-// Example main function to test the implementation
+
 int main() {
     // Test Chef
     cout << " Testing Chef " << endl;
