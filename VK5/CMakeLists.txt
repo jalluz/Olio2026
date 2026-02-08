@@ -5,7 +5,11 @@ project(VK5 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(VK5 main.cpp)
+add_executable(VK5 main.cpp
+    Notifikaattori.h
+    Seuraaja.h
+    Notifikaattori.cpp
+    Seuraaja.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS VK5
