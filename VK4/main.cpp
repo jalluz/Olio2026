@@ -51,7 +51,7 @@ public:
     bool withdraw(double amount) override
     {
         if (amount < 0) return false;
-        // Saldo menee negatiiviseksi, mutta ei alle -luottoRaja
+        // Saldo menee negatiiviseksi mutta ei alle -luottoRaja
         if (saldo - amount < -luottoRaja) return false;
         saldo -= amount;
         return true;
