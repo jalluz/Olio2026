@@ -9,4 +9,4 @@ Olio-ohjelmointi ja oliopohjainen suunnittelu kurssi 2026 OAMK
 - Viikko 4: -
 - Viikko 5: -
 - Viikko 6: -
-
+- Viikko 7: Konsoli ja laskin
